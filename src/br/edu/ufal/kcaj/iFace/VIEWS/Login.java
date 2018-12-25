@@ -1,29 +1,33 @@
 package br.edu.ufal.kcaj.iFace.VIEWS;
 
-import br.edu.ufal.kcaj.iFace.Utils;
-import jdk.jshell.execution.Util;
+import br.edu.ufal.kcaj.iFace.BEANS.User;
+import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
+import br.edu.ufal.kcaj.iFace.utils.UTILS;
+import br.edu.ufal.kcaj.iFace.utils.ViewAPI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-
+import java.util.ArrayList;
+import java.util.List;
 public class Login extends JFrame {
 
-    private final JButton confirm, softName, createAccount;
+    private final JButton confirm, softName, createAccount, exit;
     private final JLabel userName, password;
     private final JTextField user;
     private final JPasswordField pass;
     private final Container screen;
+    private List<User> users;
 
-
-    public Login() {
+    public Login(List<User> users) {
         screen = getContentPane();
-        String urlImg = "../iFace/src/br/edu/ufal/kcaj/iFace/assets/";
 
         confirm = new JButton("   login");
-        softName = new JButton("    IFace", new ImageIcon(urlImg + "logo.png"));
-        createAccount = new JButton("   Criar conta", new ImageIcon(urlImg + "addAccount.png"));
+        softName = new JButton("    IFace", new ImageIcon(UTILS.urlImg + "logo.png"));
+        createAccount = new JButton("   Criar conta", new ImageIcon(UTILS.urlImg + "addAccount.png"));
+        exit = new JButton(UTILS.toHtmlH3("FECHAR"));
 
+        this.users = users;
         userName = new JLabel("Usuário");
         password = new JLabel("Senha");
 
@@ -39,9 +43,9 @@ public class Login extends JFrame {
         pass.setBounds(130, 110, 150, 20);
 
         confirm.setBounds(75, 140, 150, 50);
-        createAccount.setBounds(75, 200, 150, 50);
+        createAccount.setBounds(75, 200, 200, 50);
         softName.setBounds(50 ,20, 200, 50);
-
+        exit.setBounds(250, 0, 100, 20);
     }
 
     private void addItems() {
@@ -52,45 +56,61 @@ public class Login extends JFrame {
         screen.add(pass);
         screen.add(confirm);
         screen.add(createAccount);
-    }
-
-    private void configScreen() {
-        setUndecorated(true);
-        setLayout(null);
-        setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(300, 280);
-        setResizable(false);
-        setLocationRelativeTo(null);
+        screen.add(exit);
     }
 
     private void paint() {
-        screen.setBackground(new Color(0, 139, 139));
-
+        screen.setBackground(new Color(32, 99, 155));
         userName.setForeground(new Color(176, 224, 230));
         password.setForeground(new Color(176, 224, 230));
+        exit.setForeground(Color.red);
     }
 
     private void actions() {
         confirm.addActionListener((ActionEvent ae) -> {
-
+            for(User u : users) {
+                if(u.getUsername().equals(user.getText()) && u.getPassword().equals(new String(pass.getPassword()))){
+                    new Account(users, u).start();
+                    dispose();
+                    return;
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Nome de usuário ou senha não encontrados.");
         });
-        Utils.configButton(createAccount, confirm);
-        Utils.allignButtons(softName);
-        Utils.paintButtons(softName);
+
+        createAccount.addActionListener((ActionEvent ae) -> {
+            new RegisterUser(this.users).start();
+        });
+
+        exit.addActionListener((ActionEvent ae) -> {
+            dispose();
+        });
+
+        JButtonUtils.configButton(createAccount, confirm);
+        JButtonUtils.allignButtons(exit);
+        exit.setContentAreaFilled(false);
+        exit.setBorderPainted(false);
+        JButtonUtils.allignButtons(softName);
+        JButtonUtils.paintButtons(softName);
         softName.setEnabled(false);
     }
 
     public void start() {
         position();
         addItems();
-        configScreen();
+        ViewAPI.configScreen(this, 330, 280);
         actions();
         paint();
     }
 
     public static void main(String[] args) {
-        new Login().start();
+        List<User> u = new ArrayList<>();
+        u.add(new User("Jackson", "kcaj", "1234"));
+        u.add(new User("Hiago", "hrns", "1234"));
+        u.add(new User("Bruno", "bcn", "1234"));
+        u.add(new User("Adilson", "adilsullen", "1234"));
+        u.get(0).getNotifications().add(u.get(1));
+        new Login(u).start();
     }
 
 }

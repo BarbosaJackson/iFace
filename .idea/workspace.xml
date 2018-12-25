@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1734653-0daf-42ec-84c9-b56eb274f7d4" name="Default Changelist" comment="" />
+    <list default="true" id="d1734653-0daf-42ec-84c9-b56eb274f7d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iFace/br/edu/ufal/kcaj/iFace/Utils$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iFace/br/edu/ufal/kcaj/iFace/Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iFace/br/edu/ufal/kcaj/iFace/VIEWS/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/iFace/br/edu/ufal/kcaj/iFace/VIEWS/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iFace/br/edu/ufal/kcaj/iFace/assets/computer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iFace/br/edu/ufal/kcaj/iFace/assets/human-resources.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iFace/br/edu/ufal/kcaj/iFace/assets/notification.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/iFace/br/edu/ufal/kcaj/iFace/assets/turn-notifications-on-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/JButtonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/computer.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/edit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/human-resources.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/look_profile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/notification.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/no_notification.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/turn-notifications-on-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/has_notification.png" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,46 +28,87 @@
     <session id="-1431395171">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.53" value="1" />
+          <entry key="project.open.time.89" value="1" />
+          <entry key="project.open.time.91" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="998" />
+          <entry key="dummy" value="17" />
+          <entry key="java" value="12876" />
           <entry key="md" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="998" />
+          <entry key="JAVA" value="12876" />
           <entry key="Markdown" value="47" />
+          <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="6" />
+          <entry key="java" value="26" />
           <entry key="md" value="5" />
-          <entry key="png" value="35" />
+          <entry key="png" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="35" />
-          <entry key="JAVA" value="6" />
+          <entry key="Image" value="38" />
+          <entry key="JAVA" value="26" />
           <entry key="Markdown" value="5" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+            <state relative-caret-position="1530">
+              <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/SendMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="63" column="18" selection-start-line="60" selection-start-column="8" selection-end-line="63" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1245">
+              <caret line="92" column="40" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/DetailUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,10 +117,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/Utils.java">
+        <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/EditProfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="35" column="35" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="35" selection-end-column="35" />
+            <state relative-caret-position="329">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,7 +146,20 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/Utils.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/BEANS/userDetails.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/RegisterUser.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/JButtonUtils.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/BEANS/Message.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/BEANS/User.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/ViewAPI.java" />
         <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Login.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/Pair.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/SendMessage.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/DetailUser.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/EditProfile.java" />
       </list>
     </option>
   </component>
@@ -114,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -139,18 +207,19 @@
               <item name="iFace" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="iFace" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="VIEWS" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545615986247" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545690087492" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -197,27 +266,25 @@
       <option name="presentableId" value="Default" />
       <updated>1545610561255</updated>
       <workItem from="1545610570857" duration="5387000" />
+      <workItem from="1545625471527" duration="7559000" />
+      <workItem from="1545656526049" duration="24079000" />
+      <workItem from="1545771326064" duration="283000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5387000" />
+    <option name="totallyTimeSpent" value="37308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2128788" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" weight="0.32952693" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952693" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32952693" />
@@ -225,15 +292,20 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32952693" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,25 +318,16 @@
     <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/user.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/turn-notifications-on-button.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/send_message.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/notification.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/human-resources.png">
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/look_profile.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/delete-user.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/computer.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/add_friend.png">
@@ -316,20 +379,148 @@
     <entry file="file://$PROJECT_DIR$/assets/login.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Login.java">
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/BEANS/userDetails.java" />
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/no_notification.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/has_notification.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/assets/edit.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/RegisterUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+        <state relative-caret-position="187">
+          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#position#0;class#RegisterUser#0" />
+            <element signature="method#actions#0;class#RegisterUser#0" />
+            <element signature="method#start#0;class#RegisterUser#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/BEANS/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding>
+            <element signature="e#129#130#0" expanded="true" />
+            <element signature="e#156#157#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#257#258#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/JButtonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" lean-forward="true" selection-start-column="37" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/BEANS/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="35" column="35" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="35" selection-end-column="35" />
+        <state relative-caret-position="570">
+          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1064#1065#0" expanded="true" />
+            <element signature="e#1094#1095#0" expanded="true" />
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1182#1183#0" expanded="true" />
+            <element signature="e#1191#1192#0" expanded="true" />
+            <element signature="e#1213#1214#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <folding>
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/ViewAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="97" selection-start-line="12" selection-start-column="97" selection-end-line="12" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/SendMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="63" column="18" selection-start-line="60" selection-start-column="8" selection-end-line="63" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="92" column="40" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/DetailUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/EditProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

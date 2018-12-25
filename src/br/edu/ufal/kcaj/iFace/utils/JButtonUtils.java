@@ -1,21 +1,25 @@
-package br.edu.ufal.kcaj.iFace;
+package br.edu.ufal.kcaj.iFace.utils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Utils {
+public class JButtonUtils {
+
+
     public static void modelHover(JButton jb) {
         jb.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent evt){
                 jb.setContentAreaFilled(true);
-                jb.setBackground(new Color(95, 158, 160));
+                jb.setBackground(Color.white);
+                jb.setForeground(new Color(32, 99, 155));
             }
             @Override
             public void mouseExited(MouseEvent evt){
                 jb.setContentAreaFilled(false);
+                JButtonUtils.paintButtons(jb);
             }
         });
     }
@@ -32,9 +36,11 @@ public class Utils {
 
     public static void configButton(JButton ...jbs) {
         for(JButton jb: jbs) {
-            Utils.allignButtons(jb);
-            Utils.paintButtons(jb);
-            Utils.modelHover(jb);
+            JButtonUtils.allignButtons(jb);
+            JButtonUtils.paintButtons(jb);
+            JButtonUtils.modelHover(jb);
         }
     }
+
+
 }
