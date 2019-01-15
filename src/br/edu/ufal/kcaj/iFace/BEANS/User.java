@@ -2,6 +2,7 @@ package br.edu.ufal.kcaj.iFace.BEANS;
 
 import br.edu.ufal.kcaj.iFace.utils.Pair;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,5 +107,27 @@ public class User {
 
     public void setNotifications(List<User> notifications) {
         this.notifications = notifications;
+    }
+    public void addNotification(User u) {
+        for(User aux : getFriends()){
+            if(aux.getUsername().equals(u.getUsername())) {
+                JOptionPane.showMessageDialog(null, "Vocềs já são amigos!");
+                return;
+            }
+        }
+        for(User aux : getNotifications()) {
+            if(aux.getUsername().equals(u.getUsername())) {
+                JOptionPane.showMessageDialog(null, "Vocề já enviou uma solicitação de amizade para este usuário!");
+                return;
+            }
+        }
+        for(User aux : u.getNotifications()) {
+            if(aux.getUsername().equals(this.getUsername())) {
+                JOptionPane.showMessageDialog(null, "Este usuário já enviou uma solicitação de amizade pra você, favor, conferir as notificações.");
+                return;
+            }
+        }
+        this.notifications.add(u);
+        JOptionPane.showMessageDialog(null, "Solicitação enviada com sucesso!");
     }
 }

@@ -1,8 +1,8 @@
 package br.edu.ufal.kcaj.iFace.utils;
 
 public class Pair<K, V> {
-    public final K first;
-    public final V second;
+    public K first;
+    public V second;
 
     public Pair(K first, V second) {
         this.first = first;

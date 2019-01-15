@@ -24,6 +24,7 @@ public class Login extends JFrame {
 
         confirm = new JButton("   login");
         softName = new JButton("    IFace", new ImageIcon(UTILS.urlImg + "logo.png"));
+//        System.out.println(UTILS.urlImg + "logo.png");
         createAccount = new JButton("   Criar conta", new ImageIcon(UTILS.urlImg + "addAccount.png"));
         exit = new JButton(UTILS.toHtmlH3("FECHAR"));
 
@@ -62,8 +63,9 @@ public class Login extends JFrame {
     private void paint() {
         screen.setBackground(new Color(32, 99, 155));
         userName.setForeground(new Color(176, 224, 230));
+        softName.setForeground(new Color(176, 223, 230));
         password.setForeground(new Color(176, 224, 230));
-        exit.setForeground(Color.red);
+        exit.setForeground(new Color(176, 224, 230));
     }
 
     private void actions() {
@@ -101,6 +103,7 @@ public class Login extends JFrame {
         ViewAPI.configScreen(this, 330, 280);
         actions();
         paint();
+        user.requestFocus();
     }
 
     public static void main(String[] args) {
@@ -109,7 +112,19 @@ public class Login extends JFrame {
         u.add(new User("Hiago", "hrns", "1234"));
         u.add(new User("Bruno", "bcn", "1234"));
         u.add(new User("Adilson", "adilsullen", "1234"));
-        u.get(0).getNotifications().add(u.get(1));
+        u.add(new User("a", "a", "a"));
+        u.add(new User("b", "b", "b"));
+        u.add(new User("c", "c", "c"));
+        u.add(new User("d", "d", "d"));
+        u.add(new User("e", "e", "e"));
+        u.add(new User("f", "f", "f"));
+        u.add(new User("g", "g", "g"));
+        u.add(new User("h", "h", "h"));
+        for(int i = 1; i < u.size(); i++) {
+            u.get(0).addNotification(u.get(i));
+        }
+
+
         new Login(u).start();
     }
 
