@@ -1,5 +1,6 @@
 package br.edu.ufal.kcaj.iFace.VIEWS;
 
+import br.edu.ufal.kcaj.iFace.BEANS.Message;
 import br.edu.ufal.kcaj.iFace.BEANS.User;
 import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
 import br.edu.ufal.kcaj.iFace.utils.Pair;
@@ -7,6 +8,7 @@ import br.edu.ufal.kcaj.iFace.utils.UTILS;
 import br.edu.ufal.kcaj.iFace.utils.ViewAPI;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -32,14 +34,17 @@ public class Account extends JFrame {
         this.me = me;
         this.users = users;
         this.visibleConfigMenu = false;
-        this.visibleFriends = true;
-        this.visibleMessages = false;
 
         leftMenu = new JPanel(null);
         configMenu = new JPanel(null);
 
-        friendsPanel = new JPanel(new GridLayout(0, 1));
-        messagesPanel = new JPanel(null);
+        friendsPanel = new JPanel();
+        friendsPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 10));
+        friendsPanel.setLayout(new GridLayout(0, 1, 10, 15));
+
+        messagesPanel = new JPanel();
+        messagesPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 10));
+        messagesPanel.setLayout(new GridLayout(0, 1));
 
         friends = new JScrollPane();
         friends.setViewportView(friendsPanel);
@@ -49,9 +54,13 @@ public class Account extends JFrame {
         softName = new JButton("<html><h1>    IFace</h1></html>", new ImageIcon(UTILS.urlImg + "logo.png"));
         JButtonUtils.allignButtons(softName);
         JButtonUtils.paintButtons(softName);
+
         softName.setEnabled(false);
         friendsList = new ArrayList<>();
         showFriend = new JButton("Amigos");
+
+        messagesList = new ArrayList<>();
+        showMessage = new JButton("Mensagens");
 
         updateFriendList();
 
@@ -70,33 +79,52 @@ public class Account extends JFrame {
         logout = new JButton(UTILS.toHtmlH3("Sair"));
         addDetail = new JButton(UTILS.toHtmlH3("Adicionar caracteristica"));
         editProfile = new JButton(UTILS.toHtmlH3("Editar perfil"));
+
         if(this.me.getNotifications().size() == 0) {
             notifications = new JButton(new ImageIcon(UTILS.urlImg + "no_notification.png"));
         } else {
             notifications = new JButton(new ImageIcon(UTILS.urlImg + "has_notification.png"));
         }
 
-
+        this.visibleMessages = changeButton(showMessage, visibleMessages, visibleFriends, showFriend, messages, friends);
+        this.visibleFriends = changeButton(showFriend, visibleFriends, visibleMessages, showMessage, friends, messages);
+        visibleMessages = !visibleFriends;
         configMenu.setVisible(visibleConfigMenu);
     }
 
     private void updateFriendList() {
         friendsPanel.removeAll();
-        friendsList.add(new JLabel(UTILS.toHtmlH2("Amigos")));
-        ViewAPI.addItems(friendsPanel, friendsList.get(0));
-        friendsList.get(0).setBounds(20, 20, 100, 20);
-        friendsList.get(0).setForeground(UTILS.foregroundFontColor);
-        int y = 80;
-
         for(User u : me.getFriends()) {
             String friend = "Nome de usuário: " + u.getUsername() + "<br>Nome: " + u.getName();
             friendsList.add(new JLabel(UTILS.toHtmlParagraph(friend)));
             friendsPanel.add(friendsList.get(friendsList.size() - 1));
-            friendsList.get(friendsList.size() - 1).setBounds(20, y, 100, 40);
             friendsList.get(friendsList.size() - 1).setForeground(UTILS.foregroundFontColor);
-            y += 50;
         }
         friends.setViewportView(friendsPanel);
+    }
+
+    private void addMessageToList(JLabel jl) {
+        messagesList.add(jl);
+        messagesPanel.add(messagesList.get(messagesList.size() - 1));
+        messagesList.get(messagesList.size() - 1).setForeground(UTILS.foregroundFontColor);
+    }
+
+    private void updateMessageList() {
+        messagesPanel.removeAll();
+        messagesList.add(new JLabel(UTILS.toHtmlH2("Enviadas<hr>")));
+        messagesPanel.add(messagesList.get(0));
+        messagesList.get(0).setForeground(UTILS.foregroundFontColor);
+        for(Message ms : me.getSentMessages()) {
+            String field = UTILS.toHtmlParagraph("Para: " + ms.getFrom() + "<br>" + ms.getMessage());
+            addMessageToList(new JLabel(field));
+        }
+        messagesList.add(new JLabel(UTILS.toHtmlH2("Recebidas<hr>")));
+        messagesPanel.add(messagesList.get(messagesList.size() - 1));
+        messagesList.get(messagesList.size() - 1).setForeground(UTILS.foregroundFontColor);
+        for(Message ms : me.getReceivedMessages()) {
+            String field = UTILS.toHtmlParagraph("De: " + ms.getTo() + "<br>" + ms.getMessage());
+            addMessageToList(new JLabel(field));
+        }
     }
 
     private void position() {
@@ -115,20 +143,31 @@ public class Account extends JFrame {
         deleteAccout.setBounds(10, 370, 150, 50);
         logout.setBounds(10, 430, 150, 50);
         friends.setBounds(200, 260, 500, 300);
+        messages.setBounds(200, 260, 500, 300);
         showFriend.setBounds(400, 210, 100, 50);
+        showMessage.setBounds(520, 210, 150, 50);
     }
 
-    private void changeVisibleMessages() {
-        if(visibleMessages){
-            visibleMessages = !visibleMessages;
-            // TODO: change the component visible
+    private boolean changeButton(JButton jb, boolean visibleButton, boolean visibleItemMenu2, JButton itemMenu2, JScrollPane jp1, JScrollPane jp2) {
+        visibleButton = !visibleButton;
+        if(visibleButton && visibleItemMenu2) {
+            jp2.setVisible(false);
         }
+        if(visibleButton) {
+            JButtonUtils.paintButtons(jb, UTILS.selectedItemColor);
+            JButtonUtils.paintButtons(itemMenu2);
+        } else {
+            JButtonUtils.paintButtons(jb);
+        }
+        jp1.setVisible(visibleButton);
+        return visibleButton;
     }
+
 
     private void changeVisibleConfigMenu() {
         if(visibleConfigMenu) {
-            visibleConfigMenu = !visibleConfigMenu;
-            configMenu.setVisible(visibleConfigMenu);
+            visibleConfigMenu = false;
+            configMenu.setVisible(false);
         }
     }
 
@@ -144,6 +183,7 @@ public class Account extends JFrame {
                     return i;
                 }
                 i++;
+
             }
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "Você cancelou esta ação!");
@@ -151,6 +191,7 @@ public class Account extends JFrame {
         }
         return -2;
     }
+
     private void actions() {
         addFriend.addActionListener((ActionEvent ae) -> {
             changeVisibleConfigMenu();
@@ -162,12 +203,15 @@ public class Account extends JFrame {
             }
         });
         showFriend.addActionListener((ActionEvent ae) -> {
-            visibleFriends = !visibleFriends;
-            if(visibleFriends && visibleMessages) {
-                visibleMessages = !visibleMessages;
-                messages.setVisible(visibleMessages);
-            }
-            friends.setVisible(visibleFriends);
+            visibleFriends = changeButton(showFriend, visibleFriends, visibleMessages, showMessage, friends, messages);
+            visibleMessages = !visibleFriends;
+        });
+
+        showMessage.addActionListener((ActionEvent ae) -> {
+            visibleMessages = changeButton(showMessage, visibleMessages, visibleFriends, showFriend, messages, friends);
+            visibleFriends = !visibleMessages;
+            updateMessageList();
+
         });
         notifications.addActionListener((ActionEvent ae) -> {
             changeVisibleConfigMenu();
@@ -217,7 +261,13 @@ public class Account extends JFrame {
         sendMessage.addActionListener((ActionEvent ae) -> {
             changeVisibleConfigMenu();
             if(me.getFriends().size() > 0) {
-                new SendMessage(me, users, this).start();
+                SendMessage sm = new SendMessage(me, users, this);
+                sm.start();
+                if(visibleMessages) {
+                    this.visibleMessages = changeButton(showMessage, visibleMessages, visibleFriends, showFriend, messages, friends);
+                    this.visibleFriends = changeButton(showFriend, visibleFriends, visibleMessages, showMessage, friends, messages);
+                    visibleMessages = !visibleFriends;
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Você não tem nenhum amigo para enviar mensagem!");
             }
@@ -247,16 +297,20 @@ public class Account extends JFrame {
 
     public void start() {
         position();
-        ViewAPI.addItems(screen, softName, userName, notifications, leftMenu, configMenu, friends, showFriend);
+        ViewAPI.addItems(screen, softName, userName, notifications, leftMenu, configMenu, friends, messages, showFriend, showMessage);
         ViewAPI.addItems(leftMenu, configProfile, addFriend, sendMessage, createCommunity, showProfile, deleteAccout, logout);
         ViewAPI.addItems(configMenu, addDetail, editProfile);
         ViewAPI.configScreen(this, 800, 600);
         actions();
+
         ViewAPI.paint(softName, userName, notifications);
         friendsPanel.setBackground(UTILS.backgroundColorSecondWindows);
+        messagesPanel.setBackground(UTILS.backgroundColorSecondWindows);
         friends.setBorder(null);
+        messages.setBorder(null);
+
         JButtonUtils.paintButtons(notifications);
-        JButtonUtils.configButton(configProfile, addFriend, sendMessage, createCommunity, showProfile, deleteAccout, logout, editProfile, addDetail, showFriend);
+        JButtonUtils.configButton(configProfile, addFriend, sendMessage, createCommunity, showProfile, deleteAccout, logout, editProfile, addDetail);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

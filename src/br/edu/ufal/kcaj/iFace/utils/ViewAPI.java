@@ -4,7 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class ViewAPI {
-    public static void configScreen(JFrame jf, int width, int height) {
+    public static void configScreen(JDialog jd, int width, int height) {
+        jd.setUndecorated(true);
+        jd.setLayout(null);
+        jd.setResizable(false);
+        jd.setSize(width, height);
+        jd.setLocationRelativeTo(null);
+        jd.setVisible(true);
+        jd.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        jd.setModal(true);
+    }
+        public static void configScreen(JFrame jf, int width, int height) {
         jf.setUndecorated(true);
         jf.setLayout(null);
         jf.setResizable(false);

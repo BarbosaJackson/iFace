@@ -1,5 +1,6 @@
 package br.edu.ufal.kcaj.iFace.VIEWS;
 
+import br.edu.ufal.kcaj.iFace.BEANS.Message;
 import br.edu.ufal.kcaj.iFace.BEANS.User;
 import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
 import br.edu.ufal.kcaj.iFace.utils.UTILS;
@@ -10,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-public class SendMessage extends JFrame {
+public class SendMessage extends JDialog {
     Container screen;
     private List<User> users;
     private User me;
@@ -18,9 +19,10 @@ public class SendMessage extends JFrame {
     private JComboBox toCB;
     private JTextArea message;
     private JButton confirm, cancel;
+    private JFrame parent;
 
     public SendMessage(User me, List<User> users, JFrame parent) {
-
+        this.parent = parent;
         this.me = me;
         this.users = users;
         screen = getContentPane();
@@ -55,6 +57,21 @@ public class SendMessage extends JFrame {
         cancel.addActionListener((ActionEvent ae) -> {
             dispose();
         });
+        confirm.addActionListener( (ActionEvent ae) -> {
+            Message nMessage = new Message((String)toCB.getItemAt(toCB.getSelectedIndex()), me.getUsername(), message.getText());
+            if(message.getText().length() > 0) {
+                me.getSentMessages().add(nMessage);
+                for(User u : users) {
+                    if(u.getUsername().equals(toCB.getSelectedItem())) {
+                        u.getReceivedMessages().add(nMessage);
+                        break;
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Você deve digitar uma mensagem para enviar");
+            }
+            dispose();
+        });
     }
 
     public void start() {
@@ -62,7 +79,7 @@ public class SendMessage extends JFrame {
         ViewAPI.addItems(screen, from, to, toCB, message, messageL, confirm, cancel);
         ViewAPI.configScreen(this, 350, 280);
         actions();
-//        paint();
+        setModal(true);
     }
 
 }

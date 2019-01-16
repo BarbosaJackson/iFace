@@ -30,6 +30,13 @@ public class JButtonUtils {
         jb.setBorderPainted(false);
     }
 
+    public static void paintButtons(JButton jb, Color color) {
+        jb.setBackground(color);
+        jb.setContentAreaFilled(true);
+        jb.setForeground(Color.white);
+        jb.setBorderPainted(false);
+    }
+
     public static void allignButtons(JButton jb){
         jb.setHorizontalAlignment(SwingConstants.LEFT);
     }

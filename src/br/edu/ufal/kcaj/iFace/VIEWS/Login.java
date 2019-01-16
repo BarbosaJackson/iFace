@@ -121,7 +121,7 @@ public class Login extends JFrame {
         u.add(new User("g", "g", "g"));
         u.add(new User("h", "h", "h"));
         for(int i = 1; i < u.size(); i++) {
-            u.get(0).addNotification(u.get(i));
+            u.get(0).getNotifications().add(u.get(i));
         }
 
 
