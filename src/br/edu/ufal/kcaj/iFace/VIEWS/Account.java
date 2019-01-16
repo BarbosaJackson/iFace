@@ -1,5 +1,6 @@
 package br.edu.ufal.kcaj.iFace.VIEWS;
 
+import br.edu.ufal.kcaj.iFace.BEANS.Community;
 import br.edu.ufal.kcaj.iFace.BEANS.Message;
 import br.edu.ufal.kcaj.iFace.BEANS.User;
 import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
@@ -56,6 +57,7 @@ public class Account extends JFrame {
         JButtonUtils.paintButtons(softName);
 
         softName.setEnabled(false);
+
         friendsList = new ArrayList<>();
         showFriend = new JButton("Amigos");
 
@@ -94,9 +96,20 @@ public class Account extends JFrame {
 
     private void updateFriendList() {
         friendsPanel.removeAll();
+        friendsList.add(new JLabel(UTILS.toHtmlH2("Amigos<hr>")));
+        friendsPanel.add(friendsList.get(0));
         for(User u : me.getFriends()) {
             String friend = "Nome de usuário: " + u.getUsername() + "<br>Nome: " + u.getName();
             friendsList.add(new JLabel(UTILS.toHtmlParagraph(friend)));
+            friendsPanel.add(friendsList.get(friendsList.size() - 1));
+            friendsList.get(friendsList.size() - 1).setForeground(UTILS.foregroundFontColor);
+        }
+        friendsList.add(new JLabel(UTILS.toHtmlH2("Comunidades<hr>")));
+        friendsPanel.add(friendsList.get(friendsList.size() - 1));
+        friendsList.get(friendsList.size() - 1).setForeground(UTILS.foregroundFontColor);
+        for(Community c : me.getCommunities()) {
+            String field = "Dono: " + c.getLoginMaster() + "<br>Nome: " + c.getCommunityName();
+            friendsList.add(new JLabel(UTILS.toHtmlParagraph(field)));
             friendsPanel.add(friendsList.get(friendsList.size() - 1));
             friendsList.get(friendsList.size() - 1).setForeground(UTILS.foregroundFontColor);
         }
@@ -205,6 +218,7 @@ public class Account extends JFrame {
         showFriend.addActionListener((ActionEvent ae) -> {
             visibleFriends = changeButton(showFriend, visibleFriends, visibleMessages, showMessage, friends, messages);
             visibleMessages = !visibleFriends;
+            updateFriendList();
         });
 
         showMessage.addActionListener((ActionEvent ae) -> {
@@ -291,6 +305,14 @@ public class Account extends JFrame {
                 me.getDetails().add(p);
             } catch (NullPointerException ex) {
                 JOptionPane.showMessageDialog(this,"Você cancelou a ação");
+            }
+        });
+        createCommunity.addActionListener((ActionEvent ae) -> {
+             new AddCommunity(me).start();
+            if(visibleFriends) {
+                this.visibleFriends = changeButton(showFriend, visibleFriends, visibleMessages, showMessage, friends, messages);
+                this.visibleMessages = changeButton(showMessage, visibleMessages, visibleFriends, showFriend, messages, friends);
+                visibleFriends = !visibleMessages;
             }
         });
     }

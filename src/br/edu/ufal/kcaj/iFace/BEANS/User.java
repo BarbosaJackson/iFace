@@ -11,6 +11,7 @@ public class User {
     private List < Pair < String, String > > details; // first = title, second = detail
     private List <Message> sentMessages, receivedMessages;
     private List < User > notifications, friends;
+    private ArrayList<Community> communities;
 
     public User() {
         details = new ArrayList<>();
@@ -18,6 +19,7 @@ public class User {
         sentMessages = new ArrayList<>();
         receivedMessages = new ArrayList<>();
         friends = new ArrayList<>();
+        communities = new ArrayList<>();
     }
 
     public User(String name, String username, String password) {
@@ -29,6 +31,7 @@ public class User {
         sentMessages = new ArrayList<>();
         receivedMessages = new ArrayList<>();
         friends = new ArrayList<>();
+        communities = new ArrayList<>();
     }
 
 
@@ -43,6 +46,19 @@ public class User {
     public void addFriend(User u) {
         friends.add(u);
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public ArrayList<Community> getCommunities() {
+        return communities;
+    }
+
+    public void setCommunities(ArrayList<Community> communities) {
+        this.communities = communities;
+    }
+
     public List<Message> getSentMessages() {
         return sentMessages;
     }
