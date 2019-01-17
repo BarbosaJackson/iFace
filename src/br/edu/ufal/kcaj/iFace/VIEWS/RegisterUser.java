@@ -37,6 +37,10 @@ public class RegisterUser extends JFrame {
         this.users = users;
     }
 
+    private boolean validateData() {
+        return (username.getText().length() > 0) && (pass.getPassword().length > 0) && (name.getText().length() > 0);
+    }
+
     private void position() {
         nameL.setBounds(20, 80, 100, 20);
         userNameL.setBounds(20, 110, 100, 20);
@@ -54,14 +58,18 @@ public class RegisterUser extends JFrame {
 
     private void actions() {
         confirm.addActionListener((ActionEvent ae) -> {
-            User u = new User();
-            u.setName(name.getText());
-            u.setPassword(new String(pass.getPassword()));
-            if(u.setUsername(username.getText(), users)) {
-                users.add(u);
-                dispose();
+            if(validateData()) {
+                User u = new User();
+                u.setName(name.getText());
+                u.setPassword(new String(pass.getPassword()));
+                if (u.setUsername(username.getText(), users)) {
+                    users.add(u);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "O nome de usuario digitado já existe, digite outro, por favor");
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "O nome de usuario digitado já existe, digite outro, por favor");
+                JOptionPane.showMessageDialog(this, "Você deve preencher todos os campos");
             }
         });
         cancel.addActionListener((ActionEvent ae) -> {

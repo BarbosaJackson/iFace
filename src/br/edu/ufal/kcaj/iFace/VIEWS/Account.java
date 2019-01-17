@@ -7,6 +7,7 @@ import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
 import br.edu.ufal.kcaj.iFace.utils.Pair;
 import br.edu.ufal.kcaj.iFace.utils.UTILS;
 import br.edu.ufal.kcaj.iFace.utils.ViewAPI;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -25,15 +26,18 @@ public class Account extends JFrame {
     private final Container screen;
     private List<User> users;
     private User me;
+    private List<Community> communities;
     private boolean visibleConfigMenu, visibleFriends, visibleMessages;
     private ArrayList<JLabel> friendsList, messagesList;
     private JButton showFriend, showMessage;
 
-    public Account(List<User> users, User me) {
+    public Account(List<User> users, User me, List<Community> communities) {
         screen = getContentPane();
 
         this.me = me;
         this.users = users;
+        this.communities = communities;
+
         this.visibleConfigMenu = false;
 
         leftMenu = new JPanel(null);
@@ -98,6 +102,7 @@ public class Account extends JFrame {
         friendsPanel.removeAll();
         friendsList.add(new JLabel(UTILS.toHtmlH2("Amigos<hr>")));
         friendsPanel.add(friendsList.get(0));
+        friendsList.get(0).setForeground(UTILS.foregroundFontColor);
         for(User u : me.getFriends()) {
             String friend = "Nome de usuário: " + u.getUsername() + "<br>Nome: " + u.getName();
             friendsList.add(new JLabel(UTILS.toHtmlParagraph(friend)));
@@ -137,6 +142,12 @@ public class Account extends JFrame {
         for(Message ms : me.getReceivedMessages()) {
             String field = UTILS.toHtmlParagraph("De: " + ms.getTo() + "<br>" + ms.getMessage());
             addMessageToList(new JLabel(field));
+        }
+        for(Community c : me.getCommunities()) {
+            for (Message ms : c.getMessages()) {
+                String field = UTILS.toHtmlParagraph("De: " + ms.getFrom() + "@" + ms.getTo() + "<br>" + ms.getMessage());
+                addMessageToList(new JLabel(field));
+            }
         }
     }
 
@@ -196,11 +207,27 @@ public class Account extends JFrame {
                     return i;
                 }
                 i++;
-
             }
+            return searchComunity(userNameSearch);
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "Você cancelou esta ação!");
             return -1;
+        }
+    }
+    private int searchComunity(String nameUser){
+        int i = 0;
+        for(Community c : communities) {
+            if(c.getCommunityName().equals(nameUser)) {
+                for(Community c2 : me.getCommunities()) {
+                    if(c2.getCommunityName().equals(c.getCommunityName())) {
+                        return -3;
+                    }
+                }
+                me.getCommunities().add(c);
+                communities.get(i).getMembers().add(me);
+                return -4;
+            }
+            i++;
         }
         return -2;
     }
@@ -208,22 +235,26 @@ public class Account extends JFrame {
     private void actions() {
         addFriend.addActionListener((ActionEvent ae) -> {
             changeVisibleConfigMenu();
-            int posUser = searchUser("Digite o nome de usuario do amigo que você gostaria de adicionar");
+            int posUser = searchUser("Digite o nome de usuario do amigo ou da comunidade que você gostaria de adicionar");
             if(posUser == -2) {
                 JOptionPane.showMessageDialog(this, "O nome de usuário digitado não foi encontrado");
+            } else if(posUser == -3) {
+                JOptionPane.showMessageDialog(this, "Você já faz parte dessa comunidade");
+            } else if(posUser == -4) {
+                JOptionPane.showMessageDialog(this, "Comunidade adicionada com sucesso!");
             } else if(posUser >= 0){
                 users.get(posUser).addNotification(me);;
             }
         });
         showFriend.addActionListener((ActionEvent ae) -> {
             visibleFriends = changeButton(showFriend, visibleFriends, visibleMessages, showMessage, friends, messages);
-            visibleMessages = !visibleFriends;
+            if(visibleMessages) visibleMessages = false;
             updateFriendList();
         });
 
         showMessage.addActionListener((ActionEvent ae) -> {
             visibleMessages = changeButton(showMessage, visibleMessages, visibleFriends, showFriend, messages, friends);
-            visibleFriends = !visibleMessages;
+            if(visibleFriends) visibleFriends = false;
             updateMessageList();
 
         });
@@ -274,20 +305,20 @@ public class Account extends JFrame {
         });
         sendMessage.addActionListener((ActionEvent ae) -> {
             changeVisibleConfigMenu();
-            if(me.getFriends().size() > 0) {
-                SendMessage sm = new SendMessage(me, users, this);
+            if(me.getFriends().size() > 0 || me.getCommunities().size() > 0) {
+                SendMessage sm = new SendMessage(me, users, communities,this);
                 sm.start();
                 if(visibleMessages) {
                     this.visibleMessages = changeButton(showMessage, visibleMessages, visibleFriends, showFriend, messages, friends);
                     this.visibleFriends = changeButton(showFriend, visibleFriends, visibleMessages, showMessage, friends, messages);
-                    visibleMessages = !visibleFriends;
+                    visibleMessages = false;
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Você não tem nenhum amigo para enviar mensagem!");
             }
         });
         logout.addActionListener((ActionEvent ae) -> {
-            new Login(users).start();
+            new Login(users, communities).start();
             dispose();
         });
         addDetail.addActionListener((ActionEvent ae) -> {
@@ -308,12 +339,65 @@ public class Account extends JFrame {
             }
         });
         createCommunity.addActionListener((ActionEvent ae) -> {
-             new AddCommunity(me).start();
+            new AddCommunity(me, communities, users).start();
             if(visibleFriends) {
                 this.visibleFriends = changeButton(showFriend, visibleFriends, visibleMessages, showMessage, friends, messages);
                 this.visibleMessages = changeButton(showMessage, visibleMessages, visibleFriends, showFriend, messages, friends);
-                visibleFriends = !visibleMessages;
+                visibleFriends = false;
             }
+            updateMessageList();
+        });
+        deleteAccout.addActionListener((ActionEvent ae) -> {
+            JOptionPane.showMessageDialog(this, "Apagando as comunidades");
+            for(Community c : communities) {
+                if(c.getLoginMaster().equals(me.getUsername())) {
+                    if(c.getMembers().size() > 1) {
+                        c.setLoginMaster(c.getMembers().get(1).getUsername());
+                        c.getMembers().remove(0);
+                    } else {
+                        communities.remove(c);
+                    }
+                }
+            }
+            for(Community c : communities) {
+                for(int i = 0; i < c.getMessages().size(); i++) {
+                    if(c.getMessages().get(i).getFrom().equals(me.getUsername())){
+                        c.getMessages().remove(i);
+                        i--;
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Apagando as mensagens e os relacionamentos");
+            for(User u : me.getFriends()) {
+                for(User u2 : users) {
+                    if(u.getUsername().equals(u2.getUsername())) {
+                        for(int i = 0; i < u2.getReceivedMessages().size(); i++) {
+                            // remove todas as mensagens que foram enviadas aos amigos do perfil deles
+                            if(u2.getReceivedMessages().get(i).getFrom().equals(me.getUsername())){
+                                u2.getReceivedMessages().remove(i);
+                                i--;
+                            }
+                        }
+                        // remove todas as mensagens enviadas dos amigos pra você
+                        for(int i = 0; i < u2.getSentMessages().size(); i++) {
+                            if(u2.getSentMessages().get(i).getTo().equals(me.getUsername())) {
+                                u2.getSentMessages().remove(i);
+                                i--;
+                            }
+                        }
+                        // remove seu perfil da conta dos seus amigos
+                        for(int i = 0; i < u2.getFriends().size(); i++) {
+                            if(u2.getFriends().get(i).getUsername().equals(me.getUsername())) {
+                                u2.getFriends().remove(i);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            users.remove(me);
+            new Login(users, communities).start();
+            dispose();
         });
     }
 

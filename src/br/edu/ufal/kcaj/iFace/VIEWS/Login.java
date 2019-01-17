@@ -1,5 +1,6 @@
 package br.edu.ufal.kcaj.iFace.VIEWS;
 
+import br.edu.ufal.kcaj.iFace.BEANS.Community;
 import br.edu.ufal.kcaj.iFace.BEANS.User;
 import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
 import br.edu.ufal.kcaj.iFace.utils.UTILS;
@@ -18,8 +19,9 @@ public class Login extends JFrame {
     private final JPasswordField pass;
     private final Container screen;
     private List<User> users;
+    private List<Community> communities;
 
-    public Login(List<User> users) {
+    public Login(List<User> users, List<Community> communities) {
         screen = getContentPane();
 
         confirm = new JButton("   login");
@@ -29,6 +31,8 @@ public class Login extends JFrame {
         exit = new JButton(UTILS.toHtmlH3("FECHAR"));
 
         this.users = users;
+        this.communities = communities;
+
         userName = new JLabel("Usuário");
         password = new JLabel("Senha");
 
@@ -72,7 +76,7 @@ public class Login extends JFrame {
         confirm.addActionListener((ActionEvent ae) -> {
             for(User u : users) {
                 if(u.getUsername().equals(user.getText()) && u.getPassword().equals(new String(pass.getPassword()))){
-                    new Account(users, u).start();
+                    new Account(users, u, communities).start();
                     dispose();
                     return;
                 }
@@ -108,6 +112,7 @@ public class Login extends JFrame {
 
     public static void main(String[] args) {
         List<User> u = new ArrayList<>();
+        List<Community> communities = new ArrayList<>();
         u.add(new User("Jackson", "kcaj", "1234"));
         u.add(new User("Hiago", "hrns", "1234"));
         u.add(new User("Bruno", "bcn", "1234"));
@@ -123,9 +128,7 @@ public class Login extends JFrame {
         for(int i = 1; i < u.size(); i++) {
             u.get(0).getNotifications().add(u.get(i));
         }
-
-
-        new Login(u).start();
+        new Login(u, communities).start();
     }
 
 }

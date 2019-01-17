@@ -5,11 +5,12 @@ import br.edu.ufal.kcaj.iFace.BEANS.User;
 import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
 import br.edu.ufal.kcaj.iFace.utils.UTILS;
 import br.edu.ufal.kcaj.iFace.utils.ViewAPI;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
+import java.util.List;
 
 public class AddCommunity extends JFrame {
     private User me;
@@ -18,9 +19,13 @@ public class AddCommunity extends JFrame {
     private JTextArea descriptionTA;
     private JButton confirm, cancel;
     private Container screen;
+    private List<Community> communityList;
+    private List<User> users;
 
-    public AddCommunity(User me) {
+    public AddCommunity(User me, List<Community> communityList, List<User> users) {
         this.me = me;
+        this.communityList = communityList;
+        this.users = users;
 
         screen = getContentPane();
         usernameMaster = new JLabel(UTILS.toHtmlH2("Dono: " + me.getUsername()));
@@ -48,6 +53,9 @@ public class AddCommunity extends JFrame {
         for(Community c : me.getCommunities()) {
             if(c.getCommunityName().equals(nameTF.getText())) return false;
         }
+        for(User u : users) {
+            if(u.getUsername().equals(nameTF.getText())) return false;
+        }
         return true;
     }
 
@@ -62,9 +70,13 @@ public class AddCommunity extends JFrame {
                 c = new Community(me.getUsername());
                 c.setCommunityName(nameTF.getText());
                 c.setCommunityDescription(descriptionTA.getText());
+                c.getMembers().add(me);
                 me.getCommunities().add(c);
+                communityList.add(c);
                 JOptionPane.showMessageDialog(this, "Comunidade criada com sucesso!");
                 dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Verifique se preencheu todos os campos, se sim, o nome de usuário já está em usos");
             }
         });
     }

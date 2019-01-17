@@ -1,5 +1,6 @@
 package br.edu.ufal.kcaj.iFace.VIEWS;
 
+import br.edu.ufal.kcaj.iFace.BEANS.Community;
 import br.edu.ufal.kcaj.iFace.BEANS.Message;
 import br.edu.ufal.kcaj.iFace.BEANS.User;
 import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
@@ -20,11 +21,14 @@ public class SendMessage extends JDialog {
     private JTextArea message;
     private JButton confirm, cancel;
     private JFrame parent;
+    private List<Community> communities;
 
-    public SendMessage(User me, List<User> users, JFrame parent) {
+    public SendMessage(User me, List<User> users, List<Community> communities, JFrame parent) {
         this.parent = parent;
         this.me = me;
         this.users = users;
+        this.communities = communities;
+
         screen = getContentPane();
         screen.setBackground(UTILS.backgroundColorSecondWindows);
         from = new JLabel("DE: " + me.getUsername());
@@ -32,6 +36,9 @@ public class SendMessage extends JDialog {
         toCB = new JComboBox();
         for(User u : me.getFriends()) {
             toCB.addItem(u.getUsername());
+        }
+        for(Community c: me.getCommunities()) {
+            toCB.addItem(c.getCommunityName());
         }
         messageL = new JLabel("Digite sua mensagem: ");
         message = new JTextArea();
@@ -58,13 +65,22 @@ public class SendMessage extends JDialog {
             dispose();
         });
         confirm.addActionListener( (ActionEvent ae) -> {
-            Message nMessage = new Message((String)toCB.getItemAt(toCB.getSelectedIndex()), me.getUsername(), message.getText());
+            Message nMessage = new Message(me.getUsername(),(String)toCB.getItemAt(toCB.getSelectedIndex()), message.getText());
             if(message.getText().length() > 0) {
                 me.getSentMessages().add(nMessage);
+                boolean flag = false;
                 for(User u : users) {
                     if(u.getUsername().equals(toCB.getSelectedItem())) {
                         u.getReceivedMessages().add(nMessage);
+                        flag = true;
                         break;
+                    }
+                }
+                if(!flag) {
+                    for(Community c : communities) {
+                        if(c.getCommunityName().equals(toCB.getSelectedItem())) {
+                            c.sendMessage(me.getUsername(), message.getText());
+                        }
                     }
                 }
             } else {
