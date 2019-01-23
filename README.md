@@ -53,8 +53,28 @@ Para criar uma comunidade você deve clicar no botão **criar comunidade**, feit
 Ao clicar no botão **ver perfil** será aberta uma janela que vai solicitar o nome de usuário ou o nome da comunidade, após este ser digitado e confirmado pelo usuário, o iFace faz uma busca em sua base de dados e, em caso de encontrar uma correspondencia (vale lembrar que o nome de usuário e o nome da comunidade é único e inalterável) ele exibirá uma janela com essas informações, veja abaixo um exemplo:
 
 ![showProfile](screenshots/showProfile.png)
-### Adicionar uma nova informação ao seu perfil (como idade, status de relacionamento, etc.)
 
+### ver seus amigos, suas comunidades ou suas mensagens
+
+No centro inferior da janela inicial é exibido um painel sob dois botões, são eles: amigos e mensagens.
+
+Ao clicar em **amigos** o painel é atualizado e nele é carregado o nome de usuário e o nome de todos os seus amigos, assim, como, todas as comunidades.
+
+![showFriends](screenshots/showfriends.png)
+
+Ao clicar em **mensagens** o painel é atualizado e nele são exibidas todas as suas mensagens enviadas e recebidas (inclusive as mensagens que você recebeu através das comunidades que participa).
+
+![showMessages](screenshots/showMessages.png)
+
+### Notificações de amizade
+
+No canto superior direito há um botão relativo as notificações, sempre que houver notificações de amizade o sino tem uma imagem indicando que ele está tocando, quando não houver notificações não respondidas, um sino parado.
+
+### Deletar conta
+
+Por fim, a função de deletar sua conta, ao fazer isso tudo relacionado a você, para fazer isso, é percorrida sua lista de amigos e exclui você da lista de amigos deles, feito isso, algo similar acontece nas notificações, mas é removido da lista de notificações, depois disso, são buscadas as comunidades que você participa e é dono se só existir você ela é apagada, caso contrario é passada a posse dela para algum outro membro, em seguida são apagas as mensagens enviadas por você e para você, e, por fim, sua conta é removida do banco de dados do sistema.
+
+ 
 
 icons color: #6E8EB5
 <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

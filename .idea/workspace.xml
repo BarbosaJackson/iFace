@@ -65,8 +65,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="361">
-                <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <first_editor relative-caret-position="379">
+                <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -285,12 +285,12 @@
       <workItem from="1547570409979" duration="6363000" />
       <workItem from="1547647375633" duration="12418000" />
       <workItem from="1548255766245" duration="628000" />
-      <workItem from="1548267872308" duration="6893000" />
+      <workItem from="1548267872308" duration="7772000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63610000" />
+    <option name="totallyTimeSpent" value="64489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -345,7 +345,7 @@
         <state relative-caret-position="1296">
           <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#actions#0;class#Login#0" expanded="false" />
           </folding>
         </state>
@@ -494,7 +494,7 @@
         <state relative-caret-position="390">
           <caret line="87" column="57" lean-forward="false" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#actions#0;class#Login#0" expanded="false" />
           </folding>
         </state>
@@ -592,8 +592,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="361">
-            <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <first_editor relative-caret-position="379">
+            <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
