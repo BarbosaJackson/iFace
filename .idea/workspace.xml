@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1734653-0daf-42ec-84c9-b56eb274f7d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -56,20 +54,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="239" column="9" selection-start-line="239" selection-start-column="9" selection-end-line="239" selection-end-column="9" />
+            <state relative-caret-position="407">
+              <caret line="250" column="11" selection-start-line="250" selection-start-column="11" selection-end-line="250" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="97" selection-start-line="5" selection-start-column="97" selection-end-line="5" selection-end-column="97" />
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -176,8 +174,8 @@
         <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/AddCommunity.java" />
         <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/SendMessage.java" />
         <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/RegisterUser.java" />
-        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java" />
         <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java" />
+        <option value="$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java" />
       </list>
     </option>
   </component>
@@ -278,7 +276,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548256281541" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548256283470" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -332,12 +330,12 @@
       <workItem from="1545771326064" duration="283000" />
       <workItem from="1547570409979" duration="6363000" />
       <workItem from="1547647375633" duration="12418000" />
-      <workItem from="1548255766245" duration="514000" />
+      <workItem from="1548255766245" duration="628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56603000" />
+    <option name="totallyTimeSpent" value="56717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2557" y="0" width="2566" height="1058" extended-state="6" />
@@ -352,14 +350,14 @@
       <window_info id="Favorites" order="6" sideWeight="0.50080776" side_tool="true" weight="0.21638823" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952693" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49920446" visible="true" weight="0.3608137" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49920446" weight="0.3608137" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32869378" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32869378" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50079554" side_tool="true" weight="0.33618844" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32690248" />
       <window_info anchor="bottom" id="Duplicate detector" order="12" weight="0.32976446" />
@@ -603,17 +601,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java">
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="97" selection-start-line="5" selection-start-column="97" selection-end-line="5" selection-end-column="97" />
+        <state relative-caret-position="407">
+          <caret line="250" column="11" selection-start-line="250" selection-start-column="11" selection-end-line="250" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/VIEWS/Account.java">
+    <entry file="file://$PROJECT_DIR$/src/br/edu/ufal/kcaj/iFace/utils/UTILS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="239" column="9" selection-start-line="239" selection-start-column="9" selection-end-line="239" selection-end-column="9" />
+        <state relative-caret-position="75">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
         </state>
       </provider>
     </entry>
