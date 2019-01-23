@@ -85,11 +85,11 @@ public class Account extends JFrame {
         logout = new JButton(UTILS.toHtmlH3("Sair"));
         addDetail = new JButton(UTILS.toHtmlH3("Adicionar caracteristica"));
         editProfile = new JButton(UTILS.toHtmlH3("Editar perfil"));
-
+        notifications = new JButton("Notificações");
         if(this.me.getNotifications().size() == 0) {
-            notifications = new JButton(new ImageIcon(UTILS.urlImg + "no_notification.png"));
+            notifications.setIcon(new ImageIcon(UTILS.urlImg + "no_notification.png"));
         } else {
-            notifications = new JButton(new ImageIcon(UTILS.urlImg + "has_notification.png"));
+            notifications.setIcon(new ImageIcon(UTILS.urlImg + "has_notification.png"));
         }
 
         this.visibleMessages = changeButton(showMessage, visibleMessages, visibleFriends, showFriend, messages, friends);
@@ -154,7 +154,7 @@ public class Account extends JFrame {
     private void position() {
         userName.setBounds(300, 20, 300, 100);
         softName.setBounds(50 ,20, 200, 50);
-        notifications.setBounds(620, 20, 100, 100);
+        notifications.setBounds(620, 20, 200, 100);
         leftMenu.setBounds(0, 100, 200, 500);
         configProfile.setBounds(10, 20, 150, 50);
         configMenu.setBounds(200, 100, 200, 130);
@@ -214,12 +214,12 @@ public class Account extends JFrame {
             return -1;
         }
     }
-    private int searchComunity(String nameUser){
+    private int searchComunity(String nameUser) {
         int i = 0;
-        for(Community c : communities) {
-            if(c.getCommunityName().equals(nameUser)) {
-                for(Community c2 : me.getCommunities()) {
-                    if(c2.getCommunityName().equals(c.getCommunityName())) {
+        for (Community c : communities) {
+            if (c.getCommunityName().equals(nameUser)) {
+                for (Community c2 : me.getCommunities()) {
+                    if (c2.getCommunityName().equals(c.getCommunityName())) {
                         return -3;
                     }
                 }
@@ -230,6 +230,14 @@ public class Account extends JFrame {
             i++;
         }
         return -2;
+    }
+
+    private void updateNotifications() {
+        if(this.me.getNotifications().size() == 0) {
+            notifications.setIcon(new ImageIcon(UTILS.urlImg + "no_notification.png"));
+        } else {
+            notifications.setIcon(new ImageIcon(UTILS.urlImg + "has_notification.png"));
+        }
     }
 
     private void actions() {
@@ -284,6 +292,7 @@ public class Account extends JFrame {
                 }
                 updateFriendList();
             }
+            updateNotifications();
         });
         editProfile.addActionListener((ActionEvent ae) -> {
             changeVisibleConfigMenu();

@@ -3,7 +3,7 @@ package br.edu.ufal.kcaj.iFace.utils;
 import java.awt.*;
 
 public abstract class UTILS {
-    public static String urlImg = "../assets/logo.png";
+    public static String urlImg = "/home/edge/Documentos/iface/src/br/edu/ufal/kcaj/iFace/assets/";
 
     public static Color foregroundFontColor = new Color(176, 224, 230);
     public static Color backgroundColorSecondWindows = new Color(23, 63, 95);
