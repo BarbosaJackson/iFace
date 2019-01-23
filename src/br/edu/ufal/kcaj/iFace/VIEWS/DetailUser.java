@@ -12,13 +12,14 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 
-public class DetailUser extends JFrame {
+public class DetailUser extends JFrame implements ViewInterface{
     private JLabel nameL, username, details;
     private Container screen;
     private JPanel detailsPanel;
     private JScrollPane jp;
     private ArrayList<JLabel> titles, description;
     private JButton exit;
+
     public DetailUser(User u, JFrame parent) {
         screen = getContentPane();
         nameL = new JLabel(UTILS.toHtmlParagraph("Nome: " + u.getName()));
@@ -40,7 +41,7 @@ public class DetailUser extends JFrame {
         jp.setViewportView(detailsPanel);
 
     }
-    private void position() {
+    public void position() {
         nameL.setBounds(20, 20, 300, 20);
         username.setBounds(20, 50, 300, 20);
         exit.setBounds(400, 10, 100,20);
@@ -54,7 +55,7 @@ public class DetailUser extends JFrame {
         }
     }
 
-    private void actions() {
+    public void actions() {
         exit.addActionListener((ActionEvent ae) -> {
             dispose();
         });

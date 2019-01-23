@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-public class SendMessage extends JDialog {
+public class SendMessage extends JFrame implements ViewInterface {
     Container screen;
     private List<User> users;
     private User me;
@@ -50,7 +50,7 @@ public class SendMessage extends JDialog {
         JButtonUtils.configButton(confirm, cancel);
     }
 
-    private void position() {
+    public void position() {
         from.setBounds(20, 20, 300, 30);
         to.setBounds(20, 60, 100, 30);
         toCB.setBounds(130, 60, 200, 30);
@@ -60,7 +60,7 @@ public class SendMessage extends JDialog {
         cancel.setBounds(180, 150, 150, 40);
     }
 
-    private void actions() {
+    public void actions() {
         cancel.addActionListener((ActionEvent ae) -> {
             dispose();
         });
@@ -95,7 +95,6 @@ public class SendMessage extends JDialog {
         ViewAPI.addItems(screen, from, to, toCB, message, messageL, confirm, cancel);
         ViewAPI.configScreen(this, 350, 280);
         actions();
-        setModal(true);
     }
 
 }

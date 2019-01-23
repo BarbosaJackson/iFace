@@ -5,14 +5,13 @@ import br.edu.ufal.kcaj.iFace.BEANS.User;
 import br.edu.ufal.kcaj.iFace.utils.JButtonUtils;
 import br.edu.ufal.kcaj.iFace.utils.UTILS;
 import br.edu.ufal.kcaj.iFace.utils.ViewAPI;
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-public class AddCommunity extends JFrame {
+public class AddCommunity extends JFrame implements ViewInterface{
     private User me;
     private JLabel usernameMaster, nameL, descriptionL;
     private JTextField nameTF;
@@ -37,7 +36,7 @@ public class AddCommunity extends JFrame {
         cancel = new JButton("Cancelar");
     }
 
-    private void position() {
+    public void position() {
         usernameMaster.setBounds(20, 20, 150, 30);
         nameL.setBounds(20, 60, 100, 20);
         nameTF.setBounds(130, 60, 200, 20);
@@ -59,7 +58,7 @@ public class AddCommunity extends JFrame {
         return true;
     }
 
-    private void actions() {
+    public void actions() {
         cancel.addActionListener((ActionEvent ae) -> {
             JOptionPane.showMessageDialog(this, "Você cancelou está ação, com isso os dados fornecidos não vão ser salvos!");
             dispose();

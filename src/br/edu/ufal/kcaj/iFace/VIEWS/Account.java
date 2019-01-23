@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Account extends JFrame {
+public class Account extends JFrame implements ViewInterface {
     private final JPanel leftMenu, configMenu;
     private JPanel friendsPanel, messagesPanel;
     private JScrollPane friends, messages;
@@ -133,14 +133,14 @@ public class Account extends JFrame {
         messagesPanel.add(messagesList.get(0));
         messagesList.get(0).setForeground(UTILS.foregroundFontColor);
         for(Message ms : me.getSentMessages()) {
-            String field = UTILS.toHtmlParagraph("Para: " + ms.getFrom() + "<br>" + ms.getMessage());
+            String field = UTILS.toHtmlParagraph("Para: " + ms.getTo() + "<br>" + ms.getMessage());
             addMessageToList(new JLabel(field));
         }
         messagesList.add(new JLabel(UTILS.toHtmlH2("Recebidas<hr>")));
         messagesPanel.add(messagesList.get(messagesList.size() - 1));
         messagesList.get(messagesList.size() - 1).setForeground(UTILS.foregroundFontColor);
         for(Message ms : me.getReceivedMessages()) {
-            String field = UTILS.toHtmlParagraph("De: " + ms.getTo() + "<br>" + ms.getMessage());
+            String field = UTILS.toHtmlParagraph("De: " + ms.getFrom() + "<br>" + ms.getMessage());
             addMessageToList(new JLabel(field));
         }
         for(Community c : me.getCommunities()) {
@@ -151,7 +151,7 @@ public class Account extends JFrame {
         }
     }
 
-    private void position() {
+    public void position() {
         userName.setBounds(300, 20, 300, 100);
         softName.setBounds(50 ,20, 200, 50);
         notifications.setBounds(620, 20, 200, 100);
@@ -240,7 +240,7 @@ public class Account extends JFrame {
         }
     }
 
-    private void actions() {
+    public void actions() {
         addFriend.addActionListener((ActionEvent ae) -> {
             changeVisibleConfigMenu();
             int posUser = searchUser("Digite o nome de usuario do amigo ou da comunidade que você gostaria de adicionar");

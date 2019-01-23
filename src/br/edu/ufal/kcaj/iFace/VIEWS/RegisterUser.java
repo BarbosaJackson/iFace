@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-public class RegisterUser extends JFrame {
+public class RegisterUser extends JFrame implements ViewInterface{
     private final JButton confirm, cancel, softName;
     private final JLabel userNameL, passwordL, nameL;
     private final JTextField username, name;
@@ -41,7 +41,7 @@ public class RegisterUser extends JFrame {
         return (username.getText().length() > 0) && (pass.getPassword().length > 0) && (name.getText().length() > 0);
     }
 
-    private void position() {
+    public void position() {
         nameL.setBounds(20, 80, 100, 20);
         userNameL.setBounds(20, 110, 100, 20);
         passwordL.setBounds(20, 140, 100, 20);
@@ -56,7 +56,7 @@ public class RegisterUser extends JFrame {
 
     }
 
-    private void actions() {
+    public void actions() {
         confirm.addActionListener((ActionEvent ae) -> {
             if(validateData()) {
                 User u = new User();

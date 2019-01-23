@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditProfile extends JFrame {
+public class EditProfile extends JFrame implements ViewInterface {
     private JLabel username, name;
     private JPanel detailPanel;
     private JTextField nameT;
@@ -22,6 +22,7 @@ public class EditProfile extends JFrame {
     private List<JTextField> detail;
     private JButton confirm, cancel;
     private User me;
+
     public EditProfile(User u) {
         me = u;
         screen = getContentPane();
@@ -44,7 +45,7 @@ public class EditProfile extends JFrame {
         jp.setViewportView(detailPanel);
     }
 
-    private void position() {
+    public void position() {
         username.setBounds(20, 20, 200, 20);
         name.setBounds(20, 50, 100, 20);
         nameT.setBounds(120, 50, 300, 20);
@@ -59,7 +60,7 @@ public class EditProfile extends JFrame {
         cancel.setBounds(200, y == 10 ? 100 : 110 + (titles.size() < 4 ? y : 200), 150, 50);
     }
 
-    private void actions() {
+    public void actions() {
         cancel.addActionListener((ActionEvent ae) -> {
             JOptionPane.showMessageDialog(this, "Você cancelou a edição do perfil, com isso, as alterações não foram feitas");
             dispose();

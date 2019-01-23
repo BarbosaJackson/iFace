@@ -53,25 +53,6 @@ public class Login extends JFrame {
         exit.setBounds(250, 0, 100, 20);
     }
 
-    private void addItems() {
-        screen.add(softName);
-        screen.add(userName);
-        screen.add(password);
-        screen.add(user);
-        screen.add(pass);
-        screen.add(confirm);
-        screen.add(createAccount);
-        screen.add(exit);
-    }
-
-    private void paint() {
-        screen.setBackground(new Color(32, 99, 155));
-        userName.setForeground(new Color(176, 224, 230));
-        softName.setForeground(new Color(176, 223, 230));
-        password.setForeground(new Color(176, 224, 230));
-        exit.setForeground(new Color(176, 224, 230));
-    }
-
     private void actions() {
         confirm.addActionListener((ActionEvent ae) -> {
             for(User u : users) {
@@ -103,10 +84,11 @@ public class Login extends JFrame {
 
     public void start() {
         position();
-        addItems();
+        ViewAPI.paint(userName, softName, password, exit);
+        screen.setBackground(UTILS.backgroundColorPrimary);
+        ViewAPI.addItems(screen, softName, userName, password, user, pass, confirm, createAccount, exit);
         ViewAPI.configScreen(this, 330, 280);
         actions();
-        paint();
         user.requestFocus();
     }
 
