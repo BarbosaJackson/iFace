@@ -13,13 +13,20 @@ Abaixo segue uma imagem com um exemplo desta tela
   
 ### Configurações de perfil
 O primeiro botão do menu é o botão de configuração do perfil, ao clicar nele vão ser exibidos outros dois botões que são usudos para adicionar as informações ao seu perfil e para adicionar novas informações ao seu perfil, respectivamente, veja abaixo este "submenu".
+
 ![imgSubMenuPerfil](screenshots/configSubmenu.png)
+
 #### Adicionar informações ao seu perfil
+
 Para adicionar uma nova informação ao seu perfil basta clicar no botão **config. perfil** e depois clicar no botão **adicionar caracteristica**, feito isso você será redirecionado para uma janela pedindo o titulo da informação que você deseja adicionar (idade, status de relacionamento, formação, etc.), após isso, outra janela aparecerá solicitando que você digite a descrição da informação anteriormente citada, quando os dois forem digitados e confirmados pelo usuário será adicionado as suas informações.
+
 #### Editar informações do perfil
+
 Ao clicar no botão de edição de informações do perfil você será redirecionado a uma janela com seu nome de usuario  (_este, inalterável_), e com todas as suas outras informações - como nome (por padrão), idade, onde trabalha, entre outras coisas.
 Para editar alguma informação, basta clicar na caixa de texto com o valor atual, alterar para o novo valor e clicar em confirmar e a informação será atualizada no seu perfil. Veja abaixo um exemplo de tela.
+
 ![imgEditProfile](screenshots/editProfile.png)
+
 ### Adicionar um amigo ou uma comunidade
 Para adicionar um amigo ou ingressar em uma comunidade você vai clicar no botão **adicionar amigo/Comunidade** e digitar o nome do amigo ou da comunidade que você deseja adicionar ou ser inserido, feito isso, o sistema vai realizar uma busca e a partir disso cinco coisas podem acontecer
   - O usuário correspondente ser encontrado, com isso, uma notificação é enviada ao usuário.
@@ -30,11 +37,24 @@ Para adicionar um amigo ou ingressar em uma comunidade você vai clicar no botã
   - O nome buscado não ser encontrado.
   
 ### Enviar uma mensagem para um amigo ou uma comunidade
+
 Ao selecionar esta opção no menu a esquerda será aberta uma janela com a sua lista de amigos e comunidades em uma caixa de seleção e um campo de texto para que você digite a mensagem que deseja enviar (Veja abaixo uma imagem desta tela).
+
 ![imgSendMessage](screenshots/sendMessage.png)
+
 ### Criar comunidade 
+
+Para criar uma comunidade você deve clicar no botão **criar comunidade**, feito isso uma janela vai abrir e solicitar o nome da comunidade e uma breve descrição desta.
+
+![imgCreateCommunity](screenshots/createCommunity.png)
+
 ### Acessar as informações de perfil de um usuário ou de uma comunidade
+
+Ao clicar no botão **ver perfil** será aberta uma janela que vai solicitar o nome de usuário ou o nome da comunidade, após este ser digitado e confirmado pelo usuário, o iFace faz uma busca em sua base de dados e, em caso de encontrar uma correspondencia (vale lembrar que o nome de usuário e o nome da comunidade é único e inalterável) ele exibirá uma janela com essas informações, veja abaixo um exemplo:
+
+![showProfile](screenshots/showProfile.png)
 ### Adicionar uma nova informação ao seu perfil (como idade, status de relacionamento, etc.)
+
 
 icons color: #6E8EB5
 <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
