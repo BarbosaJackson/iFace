@@ -77,7 +77,7 @@ public class Account extends JFrame implements ViewInterface {
         userName = new JLabel("<html><h1>Olá, " + me.getUsername() + " seja bem vindo</h1></html>");
         configProfile = new JButton(UTILS.toHtmlH3("Config. Perfil"), new ImageIcon(UTILS.urlImg
          + "edit.png"));
-        addFriend = new JButton(UTILS.toHtmlH3("adicionar amigo"), new ImageIcon(UTILS.urlImg + "add_friend.png"));
+        addFriend = new JButton(UTILS.toHtmlH3("adicionar amigo / comunidade"), new ImageIcon(UTILS.urlImg + "add_friend.png"));
         sendMessage = new JButton(UTILS.toHtmlH3("Enviar mensagem"), new ImageIcon(UTILS.urlImg + "send_message.png"));
         createCommunity = new JButton(UTILS.toHtmlH3("Criar comunidade"), new ImageIcon(UTILS.urlImg + "add_community.png"));
         showProfile = new JButton(UTILS.toHtmlH3("Ver perfil"), new ImageIcon(UTILS.urlImg + "look_profile.png"));
@@ -160,7 +160,7 @@ public class Account extends JFrame implements ViewInterface {
         configMenu.setBounds(200, 100, 200, 130);
         addDetail.setBounds(20, 20, 150, 50);
         editProfile.setBounds(20, 80, 150, 50);;
-        addFriend.setBounds(10, 90, 150, 50);
+        addFriend.setBounds(10, 90, 200, 50);
         sendMessage.setBounds(10, 160, 150, 50);
         createCommunity.setBounds(10, 230, 150 , 50);
         showProfile.setBounds(10, 300, 150, 50);
