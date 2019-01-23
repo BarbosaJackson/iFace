@@ -74,7 +74,60 @@ No canto superior direito há um botão relativo as notificações, sempre que h
 
 Por fim, a função de deletar sua conta, ao fazer isso tudo relacionado a você, para fazer isso, é percorrida sua lista de amigos e exclui você da lista de amigos deles, feito isso, algo similar acontece nas notificações, mas é removido da lista de notificações, depois disso, são buscadas as comunidades que você participa e é dono se só existir você ela é apagada, caso contrario é passada a posse dela para algum outro membro, em seguida são apagas as mensagens enviadas por você e para você, e, por fim, sua conta é removida do banco de dados do sistema.
 
- 
+## Classes
 
+### Community
+  - Motivação: Definir o que é uma comunidade para o sistema
+  - Solução: Com isso é possivel ter dados compartilhados globalmente com todos os usuário através de uma lista de comunidades
+  - Vantagem: Com ela é possível agrupar todas as informações de uma comunidade 
+
+### Message
+  - Motivação: Definir o que seria a messagem no sistema
+  - Solução: agrupar em um mesmo objeto quem enviou, o que enviou e para quem enviou
+  - Vantagem: Ter todos os dados agrupados em um só objeto, permitindo assim que apenas os os usuários relacionados a mensagem tenham acesso a ela
+  - Desvantagem: Informação duplicada, pois, a mesma mensagem é salva no usuário que enviou e no usuário que recebeu a mensagem.
+
+### User
+  - Motivação: Agrupar todas as informações que cabem no usuário em relação as especificações sistema
+  - Solução: criar um usuário e dar a ele acesso as suas informações
+  - Vantagem: Poder ter uma lista de usuários global compartilhada para todos os usuários.
+  - Desvantagem: Informação duplicada, para formar a lista de amigos e de notificações de amizade é salvo todo o objeto do outro usuário em duas novas listas além da lista global.
+
+### JButtonUTILS
+  - Motivação: Criar uma classe que tenha os padrões de configuração de botões 
+  - Solução: Eliminar a duplicação de trechos de código para configurar um botão
+  - Vantagem: eliminar a duplicação de código
+
+### Pair 
+  - Motivação: Criar um objeto que possa agrupar informações em pares para salvar os novos detalhes de cada usuário (tendo na chave e valor o titulo e a descrição da caracteristica)
+  - Solução: Criar um objeto que agrupe informações em pares 
+  - Vantagem: Quando a relação direta entre os objetos (como no caso de titulo e descrição) é interessante que os dois sejam salvos juntos, para evitar a chance de ter um chaveamento errado e relacionar o que deveria ser uma chave com o valor errado
+
+### UTILS
+  - Motivação: Ter agrupado os dados gerais do sistema, como o URL base das imagens, as cores utilizadas no fundo e nas fontes, além da estilização do texto.
+  - Solução: Uma classe com constantes que tenham esses valores estaticos.
+  - Vantagem: Se for necessário alterar a paleta de cores ou o caminho onde as imagens estão, basta alterar a sua constante e será atualizado para todo o sistema.
+
+### ViewAPI 
+  - Motivação: Evitar a duplicação de código na configuração do sistema 
+  - Solução: Criar uma classe que faça essas configurações de maneira geral e, ao passar os componentes que ela
+  - Vantagem: redução na duplicação e na quantidade de código escrito, visto que em seus métodos são recebidos arrays e, por conta disso, é possivel percorrer os componentes com um for e aplicar a eles certa configuração
+
+### Account
+  - Motivação: Ter uma janela que agrupe as funcionalidades do usuário
+  - Solução: Criar uma classe que crie as funcionalidades
+  - Vantagem: Ter em um só lugar toda a navegação do usuário pós login
+
+### addCommunity
+  - Motivação: Ter uma janela que faça o cadastro de uma nova comunidade
+  - Solução: Criar uma janela com os dados de uma nova comunidade
+  - Vantagem: Ter uma forma interativa de adicionar uma nova comunidade
+
+### DetailUser
+  - Motivação: exibir de os detalhes do usuário de forma interativa e amigavel
+  - Solução: Criar uma janela que exiba de forma amigavel as informações do usuário
+  - Vantagem: É mais atrativo para o usuário ter os dados exibidos em uma janela do que no terminal 
+### EditProfile
+  
 icons color: #6E8EB5
 <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

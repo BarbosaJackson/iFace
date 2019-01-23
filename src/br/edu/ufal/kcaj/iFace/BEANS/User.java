@@ -124,6 +124,7 @@ public class User {
     public void setNotifications(List<User> notifications) {
         this.notifications = notifications;
     }
+
     public void addNotification(User u) {
         for(User aux : getFriends()){
             if(aux.getUsername().equals(u.getUsername())) {
