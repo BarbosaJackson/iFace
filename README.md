@@ -128,6 +128,100 @@ Por fim, a função de deletar sua conta, ao fazer isso tudo relacionado a você
   - Solução: Criar uma janela que exiba de forma amigavel as informações do usuário
   - Vantagem: É mais atrativo para o usuário ter os dados exibidos em uma janela do que no terminal 
 ### EditProfile
+  - Motivação: editar os dados de um usuário
+  - Solução: Criar uma janela que receba os dados atuais e permita a atualização
+  - Vantagem: É mais atrativo ao usuário comum utilizar uma janela
+  - Desvantagem: demanda mais código
   
+### Login
+  - Motivação: ter como o usuário entrar em sua conta no sistema
+  - Solução: criar uma janela que o permita fazer isso
+  - Vantagem: É mais atrativo ao usuário comum utilizar uma janela
+  - Desvantagem: demanda mais código
+  
+### RegisterUser
+  - Motivação: cadastrar um usuário
+  - Solução: Criar uma janela que faça o cadastro de um novo usuário
+  - Vantagem: É mais atrativo ao usuário comum utilizar uma janela
+  - Desvantagem: demanda mais código
+
+### SendMessage
+  - Motivação: permitir a troca de mensagens entre os usuários
+  - Solução: Criar uma janela que permita o usuário escolher para quem quer enviar uma mensagem e fazer com que o envio seja feito
+  - Vantagem: É mais atrativo ao usuário comum utilizar uma janela
+  - Desvantagem: demanda mais código
+
+### ViewInterface
+  - Motivação: Obrigar todas as janelas a seguir o mesmo padrão de nome de método para as configurações
+  - Solução: Criar uma interface com os métodos padrão e fazer todas as janelas implementarem ela
+  - Vantagem: ter a certeza de um padrão de métodos de configuração de janelas
+  - Desvantagem: estes métodos tem de ser públicos
+
+
+## Métodos
+
+### ViewInterface
+#### start
+  - Motivação: ter um padrão para a configuração das janelas
+  - Solução:ter um método padrão que seja por toda a configuração de uma janela
+  - Vantagens: ter a configuração da janela agrupada neste método, fazendo com que, ao desejar acrescentar ou remover algo, ser necessário apenas invocar neste método
+
+#### position
+  - Motivação: ter um padrão para criar o posicionamento das janelas.
+  - Solução:ter um método padrão que seja responsável pelo posicionamento dos componentes
+  - Vantagens: ter o posicionamento dos componentes agrupado neste método
+
+#### Actions
+  - Motivação: ter um padrão para as ações dos botões
+  - Solução: Criar um método que contenha todas as ações
+  
+### ViewAPI
+#### configScreen
+  - Motivação: Remover a duplicação de código na configuração básica de uma janela
+  - Solução: ter um método que faça as configurações da janela em relação a layout, tamanho, localização da janela, o que fazer quando a janela for fechada, visibilidade da janela
+  - Vantagem: Reduzir a quantidade de código digitado e repetido anteriormente presente e reuso de métodos
+#### addItems
+  - Motivação: Automatizar e reduzir a quantidade de cdóigo escrito para adicionar componentes em uma janela
+  - Solução: criar um método que ao ser invocado, recebe o container e os componentes a serem adicionados e os adiciona ao container
+  - Vantagem: Redução de código e reuso de método
+  
+#### paint
+  - Motivação: Automatizar o processo de colorir as fontes dos componentes
+  - Solução: Criar um método que receba um array com todos os componentes e altere a cor da sua fonte
+
+### UTILS
+#### toHtmlH3
+  - Motivação: Formatar o texto a partir da estilização do html para um header H3  
+  - Solução: Usar o suporte dado pelo java para isso e criar um método que retorne a string formatada
+
+#### toHtmlH2
+  - Motivação: Formatar o texto a partir da estilização do html para um header H2  
+  - Solução: Usar o suporte dado pelo java para isso e criar um método que retorne a string formatada
+
+#### toHtmlParagraph
+  - Motivação: Formatar o texto a partir da estilização do html para uma tag p  
+  - Solução: Usar o suporte dado pelo java para isso e criar um método que retorne a string formatada
+
+
+### Pair
+#### Construtor
+   - Motivação: Atribuir os valores iniciais para a chave e o valor do pair
+   - Solução: criar um método construtor que receba os dois parametros e inicie as váriaveis
+   
+
+### JButtonUtils
+#### modelHover
+  - Motivação: criar uma animação de hover
+  - Solução: criar um método que escute as ações do mouse e mude a cor de fundo do botão em relação a isso
+#### paintButtons
+  - Motivação: reduzir a duplicação de código para configurar um botão
+  - Solução: criar um método que configure um botão da forma padrão definida pelo sistema
+  
+#### allignButtons
+  - Motivação: alinhar o texto dos botões em relação a borda
+  - Solução: criar um método que alinhe o texto do botão
+  
+
+
 icons color: #6E8EB5
 <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

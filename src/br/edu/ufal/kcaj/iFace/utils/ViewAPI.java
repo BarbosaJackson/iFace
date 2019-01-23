@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class ViewAPI {
+
     public static void configScreen(JDialog jd, int width, int height) {
         jd.setUndecorated(true);
         jd.setLayout(null);
